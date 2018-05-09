@@ -7,66 +7,97 @@
 //
 
 import UIKit
-import AFNetworking
+import MapKit
+import CoreLocation
 
-class ParksViewController: UIViewController  {
+class ParksViewController: UIViewController, CLLocationManagerDelegate  {
 
-    @IBOutlet weak var tableView: UITableView!
-    
-    var parks: [NSDictionary] = []
+    @IBOutlet weak var mapView: MKMapView!
+    var parks: [Park] = []
+    private var locationManager: CLLocationManager!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.estimatedRowHeight = 300
-        fetchParks()
-
-        // Do any additional setup after loading the view, typically from a nib.
+        mapView.delegate = self
+        mapView.showsUserLocation = true
+        loadAllParks()
+        addPinforParks()
     }
     
-    @objc func fetchParks() {
-        let baseUrl = "https://developer.nps.gov/api/v1/parks?"
-        let apikey = "cnQ86yV9EHAy3GulvrOYYbdrwdQMSVqVHY7B6mV6"
-        let url = URL(string:"\(baseUrl)api_key=\(apikey)")
-        let request = URLRequest(url: url!)
-        let session = URLSession(
-            configuration: URLSessionConfiguration.default,
-            delegate: nil,
-            delegateQueue:OperationQueue.main
-        )
-        let task : URLSessionDataTask = session.dataTask(with: request as URLRequest,completionHandler: { (dataOrNil, response, error) in
-            if let httpError = error {
-                print("\(httpError)")
-            } else {
-                if let data = dataOrNil {
-                    if let responseDictionary = try! JSONSerialization.jsonObject(with: data, options:[]) as? NSDictionary {
-                        self.parks = responseDictionary["data"] as! [NSDictionary]
-                        print(self.parks.count)
-                        DispatchQueue.main.async {
-                            self.tableView.reloadData()
-                        }
-                    }
-                }
-            }
-        });
-        task.resume()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        //lookUpCurrentLocation()
+        addPinforParks()
+
     }
+    
+    //set region
+    
+    func lookUpCurrentLocation() {
+        locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.startUpdatingLocation()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let currentLocation: CLLocation = locations[0] as CLLocation
+        let viewRegion = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 4000, 4000)
+        mapView.setRegion(viewRegion, animated: false)
+        
+    }
+    
+    func loadAllParks() {
+        NPSAPIClient.shareInstance.fectchParks(success: { (parks: [Park]) in
+            self.parks = parks
+            print("Successfully loaded \(parks.count) parks")
+        }) { (error: Error?) in
+            print("error \(error?.localizedDescription ?? "Default Error String")")
+        }
+    }
+    func addPinforParks() {
+        NPSAPIClient.shareInstance.fectchParks(success: { (parks: [Park]) in
+            for park in self.parks {
+                print("\(park.name)")
+                self.addAnnotationForPark(park: park)
+            }
+        }) { (error: Error?) in
+            print("error \(error?.localizedDescription ?? "Default Error String")")
+        }
+    }
+    
+    func add(park: Park) {
+        mapView.addAnnotation(park)
+        
+    }
+    func addAnnotationForPark(park: Park) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = park.coordinate
+        annotation.title = park.name
+        mapView.addAnnotation(annotation)
+        
+    }
+    
+    
+
 }
 
-
-
-extension ParksViewController : UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return parks.count
+extension ParksViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let identifier = "mapPin"
+        if annotation is Park {
+            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+            if annotationView == nil {
+                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            } else {
+                annotationView?.annotation = annotation
+            }
+            return annotationView
+        }
+        return nil
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ParkCell", for: indexPath) as UITableViewCell
-        cell.textLabel?.text = parks[indexPath.row].value(forKey: "fullName") as? String
-        
-        return cell
-    }
-    
 }
 

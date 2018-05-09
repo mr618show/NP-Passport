@@ -7,14 +7,17 @@
 //
 
 import Foundation
+import AFNetworking
+import MapKit
+import CoreLocation
 
 class NPSAPIClient {
     static let shareInstance = NPSAPIClient()
-    var parks = [Park]()
-    func fectchParks() {
+    func fectchParks(success: @escaping ([Park]) -> (), failure: @escaping (Error?) -> ()) {
         let baseUrl = "https://developer.nps.gov/api/v1/parks?"
+        let constraint = "limit=1000"
         let apikey = "cnQ86yV9EHAy3GulvrOYYbdrwdQMSVqVHY7B6mV6"
-        let url = URL(string:"\(baseUrl)api_key=\(apikey)")
+        let url = URL(string:"\(baseUrl)\(constraint)&api_key=\(apikey)")
         let request = URLRequest(url: url!)
         let session = URLSession(
             configuration: URLSessionConfiguration.default,
@@ -23,23 +26,23 @@ class NPSAPIClient {
         )
         let task : URLSessionDataTask = session.dataTask(with: request as URLRequest,completionHandler: { (dataOrNil, response, error) in
             if let httpError = error {
+                failure(error)
                 print("\(httpError)")
             } else {
+                var parks = [Park]()
                 if let data = dataOrNil {
                     if let responseDictionary = try! JSONSerialization.jsonObject(with: data, options:[]) as? NSDictionary {
                         let retrievedData = responseDictionary["data"] as! [NSDictionary]
-                        for item in retrievedData {
-                            let park = Park()
-                            park.name = item.value(forKey: "fullName") as! String
-                            park.summary = item.value(forKey: "description") as! String
-                            let latLongString = item.value(forKey: "latLong") as! String
-                            park.latitude = latLongString.getLatitude()!
-                            park.longitude = latLongString.getLongitude()!
-                            self.parks.append(park)
+                        let predicate = NSPredicate(format: "designation CONTAINS[c] 'National Park'")
+                        let filteredData = (retrievedData as NSArray).filtered(using: predicate) as! [NSDictionary]
+                        // retrive an array of NSDictionary whose "destination  = national park"
+                        for item in filteredData {
+                            let park = Park(item: item)
+                            parks.append(park)
                         }
-                        print(self.parks.count)
                     }
                 }
+                success(parks)
             }
         });
         task.resume()
