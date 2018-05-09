@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+extension String {
+    func getLatitude() -> Double? {
+        let latString = self.components(separatedBy: ",").first!.components(separatedBy: ":").last
+        return NSString(string: latString!).doubleValue
+    }
+    
+    func getLongitude() -> Double? {
+        let longString = self.components(separatedBy: ",").last!.components(separatedBy: ":").last
+        return NSString(string: longString!).doubleValue
+    }
+}

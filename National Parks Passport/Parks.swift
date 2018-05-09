@@ -7,3 +7,16 @@
 //
 
 import Foundation
+
+class Park: NSObject {
+    var name = ""
+    var summary = ""
+    var latitude = 0.0
+    var longitude = 0.0
+    var visited = NSDate()
+    
+    static func < (lhs: Park, rhs: Park) -> Bool {
+        return lhs.name.localizedStandardCompare(rhs.name) == .orderedAscending
+    }
+    
+}
