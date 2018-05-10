@@ -13,6 +13,7 @@ import CoreLocation
 
 class NPSAPIClient {
     static let shareInstance = NPSAPIClient()
+    static var parks = [Park]()
     func fectchParks(success: @escaping ([Park]) -> (), failure: @escaping (Error?) -> ()) {
         let baseUrl = "https://developer.nps.gov/api/v1/parks?"
         let constraint = "limit=1000"
@@ -29,20 +30,19 @@ class NPSAPIClient {
                 failure(error)
                 print("\(httpError)")
             } else {
-                var parks = [Park]()
+                //var parks = [Park]()
                 if let data = dataOrNil {
                     if let responseDictionary = try! JSONSerialization.jsonObject(with: data, options:[]) as? NSDictionary {
                         let retrievedData = responseDictionary["data"] as! [NSDictionary]
                         let predicate = NSPredicate(format: "designation CONTAINS[c] 'National Park'")
                         let filteredData = (retrievedData as NSArray).filtered(using: predicate) as! [NSDictionary]
-                        // retrive an array of NSDictionary whose "destination  = national park"
                         for item in filteredData {
                             let park = Park(item: item)
-                            parks.append(park)
+                            NPSAPIClient.parks.append(park)
                         }
                     }
                 }
-                success(parks)
+                success(NPSAPIClient.parks)
             }
         });
         task.resume()

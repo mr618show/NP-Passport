@@ -15,13 +15,27 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
     @IBOutlet weak var mapView: MKMapView!
     var parks: [Park] = []
     private var locationManager: CLLocationManager!
+    var resultSearchController: UISearchController? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         mapView.delegate = self
         mapView.showsUserLocation = true
         loadAllParks()
         addPinforParks()
+        let parkSearchTable = storyboard!.instantiateViewController(withIdentifier: "ParkSearchTable") as! ParkSearchTable
+        resultSearchController = UISearchController(searchResultsController: parkSearchTable)
+        resultSearchController?.searchResultsUpdater = parkSearchTable as UISearchResultsUpdating
+        //parkSearchTable.mapView = mapView
+        let searchBar = resultSearchController!.searchBar
+        searchBar.sizeToFit()
+        searchBar.delegate = self
+        searchBar.placeholder = "Search for a park"
+        navigationItem.titleView = resultSearchController?.searchBar
+        resultSearchController?.hidesNavigationBarDuringPresentation = false
+        resultSearchController?.dimsBackgroundDuringPresentation = true
+        definesPresentationContext = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,7 +75,6 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
     func addPinforParks() {
         NPSAPIClient.shareInstance.fectchParks(success: { (parks: [Park]) in
             for park in self.parks {
-                print("\(park.name)")
                 self.addAnnotationForPark(park: park)
             }
         }) { (error: Error?) in
@@ -98,6 +111,12 @@ extension ParksViewController: MKMapViewDelegate {
             return annotationView
         }
         return nil
+    }
+}
+
+extension ParksViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print ("The search text is: '\(searchBar.text!)'")
     }
 }
 
