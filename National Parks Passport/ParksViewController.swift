@@ -19,15 +19,12 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         mapView.delegate = self
         mapView.showsUserLocation = true
         loadAllParks()
-        addPinforParks()
         let parkSearchTable = storyboard!.instantiateViewController(withIdentifier: "ParkSearchTable") as! ParkSearchTable
         resultSearchController = UISearchController(searchResultsController: parkSearchTable)
         resultSearchController?.searchResultsUpdater = parkSearchTable as UISearchResultsUpdating
-        //parkSearchTable.mapView = mapView
         let searchBar = resultSearchController!.searchBar
         searchBar.sizeToFit()
         searchBar.delegate = self
@@ -41,8 +38,6 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //lookUpCurrentLocation()
-        addPinforParks()
-
     }
     
     //set region
@@ -68,12 +63,6 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
         NPSAPIClient.shareInstance.fectchParks(success: { (parks: [Park]) in
             self.parks = parks
             print("Successfully loaded \(parks.count) parks")
-        }) { (error: Error?) in
-            print("error \(error?.localizedDescription ?? "Default Error String")")
-        }
-    }
-    func addPinforParks() {
-        NPSAPIClient.shareInstance.fectchParks(success: { (parks: [Park]) in
             for park in self.parks {
                 self.addAnnotationForPark(park: park)
             }
@@ -81,11 +70,8 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
             print("error \(error?.localizedDescription ?? "Default Error String")")
         }
     }
+
     
-    func add(park: Park) {
-        mapView.addAnnotation(park)
-        
-    }
     func addAnnotationForPark(park: Park) {
         let annotation = MKPointAnnotation()
         annotation.coordinate = park.coordinate
