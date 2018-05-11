@@ -75,7 +75,7 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
                 }
             }
         }) { (error: Error?) in
-            print("error \(error?.localizedDescription ?? "Default Error String")")
+            print("error \(error?.localizedDescription ?? "Problem loading parks")")
         }
     }
 
@@ -85,26 +85,25 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
         annotation.coordinate = park.coordinate
         annotation.title = park.name
         mapView.addAnnotation(annotation)
-        
     }
-    
-    
-
 }
 
 extension ParksViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let identifier = "mapPin"
-        if annotation is Park {
-            var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
-            if annotationView == nil {
-                annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            } else {
-                annotationView?.annotation = annotation
-            }
-            return annotationView
+        guard let annotation = annotation as? Park else { return nil }
+        let identifier = "marker"
+        var view: MKMarkerAnnotationView
+        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+            as? MKMarkerAnnotationView {
+            dequeuedView.annotation = annotation
+            view = dequeuedView
+        } else {
+            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            view.canShowCallout = true
+            view.calloutOffset = CGPoint(x: -5, y: 5)
+            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
-        return nil
+        return view
     }
 }
 
