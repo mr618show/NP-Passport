@@ -12,7 +12,7 @@
 		A570E88A20A248BF00772AD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A570E88820A248BF00772AD0 /* Main.storyboard */; };
 		A570E88C20A248BF00772AD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A570E88B20A248BF00772AD0 /* Assets.xcassets */; };
 		A570E88F20A248BF00772AD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A570E88D20A248BF00772AD0 /* LaunchScreen.storyboard */; };
-		A570E89720A24A9E00772AD0 /* Parks.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E89620A24A9E00772AD0 /* Parks.swift */; };
+		A570E89720A24A9E00772AD0 /* Park.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E89620A24A9E00772AD0 /* Park.swift */; };
 		A570E89920A297C200772AD0 /* NPSAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E89820A297C200772AD0 /* NPSAPIClient.swift */; };
 		A570E89B20A2BCBE00772AD0 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E89A20A2BCBE00772AD0 /* Helper.swift */; };
 		A570E89D20A3D64600772AD0 /* ParkSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E89C20A3D64600772AD0 /* ParkSearchTable.swift */; };
@@ -29,7 +29,7 @@
 		A570E88B20A248BF00772AD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A570E88E20A248BF00772AD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A570E89020A248BF00772AD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A570E89620A24A9E00772AD0 /* Parks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parks.swift; sourceTree = "<group>"; };
+		A570E89620A24A9E00772AD0 /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
 		A570E89820A297C200772AD0 /* NPSAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSAPIClient.swift; sourceTree = "<group>"; };
 		A570E89A20A2BCBE00772AD0 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		A570E89C20A3D64600772AD0 /* ParkSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkSearchTable.swift; sourceTree = "<group>"; };
@@ -88,7 +88,7 @@
 			children = (
 				A570E88420A248BF00772AD0 /* AppDelegate.swift */,
 				A570E88620A248BF00772AD0 /* ParksViewController.swift */,
-				A570E89620A24A9E00772AD0 /* Parks.swift */,
+				A570E89620A24A9E00772AD0 /* Park.swift */,
 				A570E88820A248BF00772AD0 /* Main.storyboard */,
 				A570E88B20A248BF00772AD0 /* Assets.xcassets */,
 				A570E88D20A248BF00772AD0 /* LaunchScreen.storyboard */,
@@ -226,7 +226,7 @@
 				A570E88720A248BF00772AD0 /* ParksViewController.swift in Sources */,
 				A570E88520A248BF00772AD0 /* AppDelegate.swift in Sources */,
 				A570E89B20A2BCBE00772AD0 /* Helper.swift in Sources */,
-				A570E89720A24A9E00772AD0 /* Parks.swift in Sources */,
+				A570E89720A24A9E00772AD0 /* Park.swift in Sources */,
 				A570E89D20A3D64600772AD0 /* ParkSearchTable.swift in Sources */,
 				A570E89920A297C200772AD0 /* NPSAPIClient.swift in Sources */,
 			);

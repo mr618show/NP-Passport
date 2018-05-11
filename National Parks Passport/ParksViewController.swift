@@ -10,13 +10,17 @@ import UIKit
 import MapKit
 import CoreLocation
 
+protocol HandleMapSearch {
+    func dropPinZoomIn(park: Park)
+}
+
 class ParksViewController: UIViewController, CLLocationManagerDelegate  {
 
     @IBOutlet weak var mapView: MKMapView!
     var parks: [Park] = []
     private var locationManager: CLLocationManager!
     var resultSearchController: UISearchController? = nil
-
+    var selectedPin: Park?
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -33,6 +37,7 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
         resultSearchController?.hidesNavigationBarDuringPresentation = false
         resultSearchController?.dimsBackgroundDuringPresentation = true
         definesPresentationContext = true
+        parkSearchTable.handleMapSearchDelegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -103,6 +108,20 @@ extension ParksViewController: MKMapViewDelegate {
 extension ParksViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print ("The search text is: '\(searchBar.text!)'")
+    }
+}
+
+extension ParksViewController: HandleMapSearch {
+    func dropPinZoomIn(park: Park) {
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = park.coordinate
+        annotation.title = park.name
+        annotation.subtitle = park.state
+        mapView.addAnnotation(annotation)
+        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let region = MKCoordinateRegionMake(park.coordinate, span)
+        mapView.setRegion(region, animated: true)
+        
     }
 }
 
