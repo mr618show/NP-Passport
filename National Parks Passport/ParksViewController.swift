@@ -24,6 +24,7 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
         super.viewDidLoad()
         mapView.delegate = self
         mapView.showsUserLocation = true
+        mapView.register(ParkMarkerView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
         loadAllParks()
         let parkSearchTable = storyboard!.instantiateViewController(withIdentifier: "ParkSearchTable") as! ParkSearchTable
         resultSearchController = UISearchController(searchResultsController: parkSearchTable)
@@ -71,20 +72,12 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
             print("Successfully loaded \(parks.count) parks")
             DispatchQueue.main.async {
                 for park in self.parks {
-                    self.addAnnotationForPark(park: park)
+                    self.mapView.addAnnotation(park)
                 }
             }
         }) { (error: Error?) in
             print("error \(error?.localizedDescription ?? "Problem loading parks")")
         }
-    }
-
-    
-    func addAnnotationForPark(park: Park) {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = park.coordinate
-        annotation.title = park.name
-        mapView.addAnnotation(annotation)
     }
 }
 
@@ -117,11 +110,7 @@ extension ParksViewController: UISearchBarDelegate {
 
 extension ParksViewController: HandleMapSearch {
     func dropPinZoomIn(park: Park) {
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = park.coordinate
-        annotation.title = park.name
-        annotation.subtitle = park.state
-        mapView.addAnnotation(annotation)
+        mapView.addAnnotation(park)
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegionMake(park.coordinate, span)
         mapView.setRegion(region, animated: true)
