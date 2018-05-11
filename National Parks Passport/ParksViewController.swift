@@ -20,7 +20,6 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
     var parks: [Park] = []
     private var locationManager: CLLocationManager!
     var resultSearchController: UISearchController? = nil
-    var selectedPin: Park?
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
@@ -68,8 +67,10 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
         NPSAPIClient.shareInstance.fectchParks(success: { (parks: [Park]) in
             self.parks = parks
             print("Successfully loaded \(parks.count) parks")
-            for park in self.parks {
-                self.addAnnotationForPark(park: park)
+            DispatchQueue.main.async {
+                for park in self.parks {
+                    self.addAnnotationForPark(park: park)
+                }
             }
         }) { (error: Error?) in
             print("error \(error?.localizedDescription ?? "Default Error String")")
@@ -106,8 +107,10 @@ extension ParksViewController: MKMapViewDelegate {
 }
 
 extension ParksViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print ("The search text is: '\(searchBar.text!)'")
+
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.placeholder = "Search for a park"
     }
 }
 
@@ -121,7 +124,7 @@ extension ParksViewController: HandleMapSearch {
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegionMake(park.coordinate, span)
         mapView.setRegion(region, animated: true)
-        
     }
 }
+
 
