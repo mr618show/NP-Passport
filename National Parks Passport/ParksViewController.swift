@@ -31,6 +31,8 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
         let searchBar = resultSearchController!.searchBar
         searchBar.sizeToFit()
         searchBar.delegate = self
+        navigationController?.navigationBar.barTintColor = UIColor(red: 0, green: 104.0/255.0, blue: 55.0/255.0, alpha: 1.0)
+        searchBar.tintColor = .white
         searchBar.placeholder = "Search for a park"
         navigationItem.titleView = resultSearchController?.searchBar
         resultSearchController?.hidesNavigationBarDuringPresentation = false

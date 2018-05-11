@@ -19,3 +19,5 @@ extension String {
         return NSString(string: longString!).doubleValue
     }
 }
+
+
