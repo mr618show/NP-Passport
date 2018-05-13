@@ -98,6 +98,21 @@ extension ParksViewController: MKMapViewDelegate {
 //        }
 //        return view
 //    }
+    func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if let annotation = view.annotation as? Park {
+        performSegue(withIdentifier: "parkDetailSegue", sender: annotation)
+        }
+    }
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "parkDetailSegue" {
+            if let park = sender as? Park {
+                let detailGroupVC = segue.destination as! ParkDetailViewController
+                detailGroupVC.park = park
+            }
+        }
+    }
 }
 
 extension ParksViewController: UISearchBarDelegate {

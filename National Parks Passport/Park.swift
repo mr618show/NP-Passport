@@ -9,8 +9,11 @@
 import Foundation
 import MapKit
 import CoreLocation
+import CoreData
 
-class Park: NSObject, MKAnnotation {
+
+@objc (Park)
+class Park: NSObject, MKAnnotation  {
     
     var name: String
     var summary: String

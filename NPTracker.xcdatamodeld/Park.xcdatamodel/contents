@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Park" representedClassName="Park" syncable="YES">
+    <entity name="NPTracker" representedClassName=".NPTracker" syncable="YES" codeGenerationType="class">
         <attribute name="lantitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastDateVisited" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
@@ -9,6 +9,6 @@
         <attribute name="visited" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Park" positionX="-54" positionY="-9" width="128" height="135"/>
+        <element name="NPTracker" positionX="-54" positionY="-9" width="128" height="135"/>
     </elements>
 </model>

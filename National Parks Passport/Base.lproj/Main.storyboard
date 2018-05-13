@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z3D-L9-xbf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z3D-L9-xbf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -78,11 +78,68 @@
                     <navigationItem key="navigationItem" id="I6y-nd-Wex"/>
                     <connections>
                         <outlet property="mapView" destination="gbc-Kc-Whe" id="rNt-5t-md4"/>
+                        <segue destination="h3u-0h-gd3" kind="show" identifier="parkDetailSegue" id="Tze-7D-aTF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1372" y="118.29085457271366"/>
+        </scene>
+        <!--Park Detail View Controller-->
+        <scene sceneID="eta-Mx-jkf">
+            <objects>
+                <viewController id="h3u-0h-gd3" customClass="ParkDetailViewController" customModule="National_Parks_Passport" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HnM-a5-rBP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Summary" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LbX-XW-36w">
+                                <rect key="frame" x="151" y="183" width="73" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="I have visited here." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cim-xV-c3Y">
+                                <rect key="frame" x="65" y="407" width="143" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0VJ-nf-VHx">
+                                <rect key="frame" x="256" y="402" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Yellow Stone National Park" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvn-nQ-HTq">
+                                <rect key="frame" x="85" y="98" width="204" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2lz-r1-ZZt" firstAttribute="bottom" secondItem="cim-xV-c3Y" secondAttribute="bottom" constant="239" id="3kH-9U-b8A"/>
+                            <constraint firstItem="0VJ-nf-VHx" firstAttribute="centerY" secondItem="cim-xV-c3Y" secondAttribute="centerY" id="6fT-aN-lRR"/>
+                            <constraint firstItem="uvn-nQ-HTq" firstAttribute="top" secondItem="2lz-r1-ZZt" secondAttribute="top" constant="82" id="9FR-5R-cpw"/>
+                            <constraint firstItem="uvn-nQ-HTq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2lz-r1-ZZt" secondAttribute="leading" constant="30" id="CXZ-uw-Fih"/>
+                            <constraint firstItem="cim-xV-c3Y" firstAttribute="top" secondItem="LbX-XW-36w" secondAttribute="bottom" constant="203.5" id="Cmg-W6-nSh"/>
+                            <constraint firstItem="2lz-r1-ZZt" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="LbX-XW-36w" secondAttribute="trailing" constant="30" id="DhT-jD-nFt"/>
+                            <constraint firstItem="cim-xV-c3Y" firstAttribute="leading" secondItem="2lz-r1-ZZt" secondAttribute="leading" constant="65" id="RNX-0I-M20"/>
+                            <constraint firstItem="LbX-XW-36w" firstAttribute="top" secondItem="uvn-nQ-HTq" secondAttribute="bottom" constant="60" id="WAD-CD-e28"/>
+                            <constraint firstItem="2lz-r1-ZZt" firstAttribute="trailing" secondItem="0VJ-nf-VHx" secondAttribute="trailing" constant="70" id="ZOp-34-oT6"/>
+                            <constraint firstItem="LbX-XW-36w" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2lz-r1-ZZt" secondAttribute="leading" constant="30" id="hcx-Ze-GC3"/>
+                            <constraint firstItem="2lz-r1-ZZt" firstAttribute="trailing" secondItem="uvn-nQ-HTq" secondAttribute="trailing" constant="50" id="kTp-1Z-ubf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2lz-r1-ZZt"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameLabel" destination="uvn-nQ-HTq" id="IMV-ZM-L7E"/>
+                        <outlet property="summaryLabel" destination="LbX-XW-36w" id="08P-me-Ktz"/>
+                        <outlet property="visitedSwitch" destination="0VJ-nf-VHx" id="FXv-Dj-mvX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4UU-kp-nwm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2345" y="118"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zSq-2V-Qlp">

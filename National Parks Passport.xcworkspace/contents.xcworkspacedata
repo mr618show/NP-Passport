@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:NPTracker+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:NPTracker+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:National Parks Passport.xcodeproj">
    </FileRef>
    <FileRef
