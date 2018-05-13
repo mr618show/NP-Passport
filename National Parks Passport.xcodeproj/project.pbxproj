@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A56DE7F920A8E68400BA8693 /* Park.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A56DE7F720A8E68400BA8693 /* Park.xcdatamodeld */; };
 		A570E88520A248BF00772AD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E88420A248BF00772AD0 /* AppDelegate.swift */; };
 		A570E88720A248BF00772AD0 /* ParksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E88620A248BF00772AD0 /* ParksViewController.swift */; };
 		A570E88A20A248BF00772AD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A570E88820A248BF00772AD0 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		71E305AFF5F0902876C2E1FF /* Pods-National Parks Passport.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-National Parks Passport.release.xcconfig"; path = "Pods/Target Support Files/Pods-National Parks Passport/Pods-National Parks Passport.release.xcconfig"; sourceTree = "<group>"; };
 		94D8F644AC774CD73CF8F65E /* Pods-National Parks Passport.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-National Parks Passport.debug.xcconfig"; path = "Pods/Target Support Files/Pods-National Parks Passport/Pods-National Parks Passport.debug.xcconfig"; sourceTree = "<group>"; };
+		A56DE7F820A8E68400BA8693 /* Park.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Park.xcdatamodel; sourceTree = "<group>"; };
 		A570E88120A248BF00772AD0 /* National Parks Passport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "National Parks Passport.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A570E88420A248BF00772AD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A570E88620A248BF00772AD0 /* ParksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParksViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				A570E88420A248BF00772AD0 /* AppDelegate.swift */,
+				A56DE7F720A8E68400BA8693 /* Park.xcdatamodeld */,
 				A570E88620A248BF00772AD0 /* ParksViewController.swift */,
 				A570E89620A24A9E00772AD0 /* Park.swift */,
 				A570E88820A248BF00772AD0 /* Main.storyboard */,
@@ -233,6 +236,7 @@
 				A570E89720A24A9E00772AD0 /* Park.swift in Sources */,
 				A570E89D20A3D64600772AD0 /* ParkSearchTable.swift in Sources */,
 				A570E89920A297C200772AD0 /* NPSAPIClient.swift in Sources */,
+				A56DE7F920A8E68400BA8693 /* Park.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +423,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A56DE7F720A8E68400BA8693 /* Park.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A56DE7F820A8E68400BA8693 /* Park.xcdatamodel */,
+			);
+			currentVersion = A56DE7F820A8E68400BA8693 /* Park.xcdatamodel */;
+			name = Park.xcdatamodeld;
+			path = ../Park.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A570E87920A248BF00772AD0 /* Project object */;
 }
