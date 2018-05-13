@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 
 
-class ParkMarkerView: MKMarkerAnnotationView {
+class ParkView: MKMarkerAnnotationView {
     override var annotation: MKAnnotation? {
         willSet {
             guard let park = newValue as? Park else { return }
@@ -18,7 +18,15 @@ class ParkMarkerView: MKMarkerAnnotationView {
             calloutOffset = CGPoint(x: -5, y: -5)
             rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
             markerTintColor = park.markerTinColor
-            glyphText = String(park.visited)
+            //glyphText = String(park.name.first!)
+            if let imageName = park.imageName {
+                image = UIImage(named: imageName)
+            } else {
+                image = nil
+            }
+ 
+            
+
         }
     }
 }

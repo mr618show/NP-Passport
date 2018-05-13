@@ -23,9 +23,16 @@ class Park: NSObject, MKAnnotation {
     var markerTinColor: UIColor {
         switch visited {
         case true :
-            return .blue
+            return UIColor(red: 0, green: 104.0/255.0, blue: 55.0/255.0, alpha: 1.0)
         case false :
-            return .green
+            return .gray
+        }
+    }
+    var imageName: String? {
+        if self.visited {
+            return "tree-color"
+        } else {
+            return "tree-grey"
         }
     }
     
