@@ -10,6 +10,7 @@ import Foundation
 import AFNetworking
 import MapKit
 import CoreLocation
+import CoreData
 
 class NPSAPIClient {
     static let shareInstance = NPSAPIClient()
@@ -39,6 +40,7 @@ class NPSAPIClient {
                         for item in filteredData {
                             let park = Park(item: item)
                             NPSAPIClient.parks.append(park)
+                            self.saveToCoreData(newPark: park)
                         }
                     }
                 }
@@ -46,6 +48,15 @@ class NPSAPIClient {
             }
         });
         task.resume()
+    }
+    func saveToCoreData(newPark:Park) {
+        let context = AppDelegate.viewContext
+        let park: NSManagedObject = NSEntityDescription.insertNewObject(forEntityName: "Park", into: context)
+        park.setValue(newPark.name, forKey: "name")
+        park.setValue(newPark.state, forKey: "state")
+        //park.setValue(newPark.coordinate.latitude, forKey: "lantitude")
+        //park.setValue(newPark.coordinate.longitude, forKey: "longitude")
+        park.setValue(newPark.visited, forKey: "visited")
     }
 }
 
