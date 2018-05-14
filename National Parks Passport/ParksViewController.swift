@@ -137,7 +137,10 @@ extension ParksViewController: HandleMapSearch {
 extension ParksViewController: NPTrackerDelegate {
     func changeParkViewColor(park: Park, visited: Bool) {
         let target = parks.filter{$0.name == park.name}.first
+        mapView.removeAnnotation(target!)
         target?.visited = visited
+        mapView.addAnnotation(target!)
+        
     }
 }
 
