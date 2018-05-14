@@ -22,5 +22,8 @@ extension NPTracker {
     @NSManaged public var name: String?
     @NSManaged public var state: String?
     @NSManaged public var visited: Bool
+    
+    
+
 
 }

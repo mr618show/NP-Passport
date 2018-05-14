@@ -53,12 +53,12 @@ class NPSAPIClient {
         //let context = AppDelegate.viewContext
         let appDel = UIApplication.shared.delegate as! AppDelegate
         let context = appDel.persistentContainer.viewContext
-        let park: NSManagedObject = NSEntityDescription.insertNewObject(forEntityName: "NPTracker", into: context)
-        park.setValue(newPark.name, forKey: "name")
-        park.setValue(newPark.state, forKey: "state")
+        let tracker: NSManagedObject = NSEntityDescription.insertNewObject(forEntityName: "NPTracker", into: context)
+        tracker.setValue(newPark.name, forKey: "name")
+        tracker.setValue(newPark.state, forKey: "state")
         //park.setValue(newPark.coordinate.latitude, forKey: "lantitude")
         //park.setValue(newPark.coordinate.longitude, forKey: "longitude")
-        park.setValue(newPark.visited, forKey: "visited")
+        tracker.setValue(newPark.visited, forKey: "visited")
     }
 }
 

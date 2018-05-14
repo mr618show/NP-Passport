@@ -110,6 +110,8 @@ extension ParksViewController: MKMapViewDelegate {
             if let park = sender as? Park {
                 let detailGroupVC = segue.destination as! ParkDetailViewController
                 detailGroupVC.park = park
+                detailGroupVC.trackerDelegate = self
+                print("sender: \(park.name)")
             }
         }
     }
@@ -129,6 +131,13 @@ extension ParksViewController: HandleMapSearch {
         let span = MKCoordinateSpanMake(0.05, 0.05)
         let region = MKCoordinateRegionMake(park.coordinate, span)
         mapView.setRegion(region, animated: true)
+    }
+}
+
+extension ParksViewController: NPTrackerDelegate {
+    func changeParkViewColor(park: Park, visited: Bool) {
+        let target = parks.filter{$0.name == park.name}.first
+        target?.visited = visited
     }
 }
 

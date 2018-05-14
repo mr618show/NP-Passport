@@ -32,11 +32,15 @@ class Park: NSObject, MKAnnotation  {
         }
     }
     var imageName: String? {
-        if self.visited {
-            return "tree-color"
-        } else {
-            return "tree-grey"
+        let context = AppDelegate.viewContext
+        if let tracker = self.fetchTracker(name: self.name, managedObjectContext: context).first {
+            if tracker.visited {
+                return "tree-color"
+            } else {
+                return "tree-grey"
+            }
         }
+        return "tree-grey"
     }
     
     init(name: String, summary: String, state: String, coordinate: CLLocationCoordinate2D) {
@@ -59,6 +63,25 @@ class Park: NSObject, MKAnnotation  {
         let latitude = latLongString.getLatitude()!
         let longitude = latLongString.getLongitude()!
         self.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+    
+    func fetchTracker(name: String, managedObjectContext: NSManagedObjectContext)-> [NPTracker] {
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "NPTracker")
+        
+        let predicate = NSPredicate(format: "name == %@", name)
+  
+        fetchRequest.predicate = predicate
+        
+        do {
+            
+            let results = try managedObjectContext.fetch(fetchRequest) as! [NPTracker]
+            return results
+            
+        } catch let error as NSError {
+            
+        }
+        return []
     }
     
 }
