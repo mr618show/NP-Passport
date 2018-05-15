@@ -111,7 +111,6 @@ extension ParksViewController: MKMapViewDelegate {
                 let detailGroupVC = segue.destination as! ParkDetailViewController
                 detailGroupVC.park = park
                 detailGroupVC.trackerDelegate = self
-                print("sender: \(park.name)")
             }
         }
     }

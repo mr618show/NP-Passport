@@ -10,7 +10,6 @@ import UIKit
 
 protocol NPTrackerDelegate {
     func changeParkViewColor(park: Park, visited: Bool)
-    
 }
 
 class ParkDetailViewController: UIViewController {
@@ -43,7 +42,6 @@ class ParkDetailViewController: UIViewController {
                 tracker.visited = true
                 trackerDelegate.changeParkViewColor(park: currentPark, visited: true)
                 self.dismiss(animated: true, completion: nil)
-                print("current park \(currentPark.name), visited: \(currentPark.visited)")
             }
         } else {
             let context = AppDelegate.viewContext
@@ -51,8 +49,6 @@ class ParkDetailViewController: UIViewController {
                 tracker.visited = false
                 trackerDelegate.changeParkViewColor(park: currentPark, visited: false)
                 self.dismiss(animated: true, completion: nil)
-                print("current park \(currentPark.name), visited: \(currentPark.visited)")
-
             }
         }
     }
