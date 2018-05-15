@@ -22,20 +22,17 @@ class ParkDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let park = park {
-            print("getter: \(park.name)")
             nameLabel.text = park.name
             summaryLabel.text = park.summary
-            let imageUrl = URL(string: park.imageUrl)
-            DispatchQueue.global().async {
-                let data = try? Data(contentsOf: imageUrl!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-                DispatchQueue.main.async {
-                    self.parkImageView.image = UIImage(data: data!)
-                }
-            }
-            //parkImageView.downloadedFrom(link: imageUrl)
             let context = AppDelegate.viewContext
             if let tracker = park.fetchTracker(name: park.name, managedObjectContext: context).first {
                 visitedSwitch.isOn = tracker.visited
+                if tracker.imageUrlString != nil {
+                    self.parkImageView.loadImageUsingUrlString(urlString: tracker.imageUrlString!)
+                } else {
+                    print ("can't load image")
+                }
+
             }
         }
         
@@ -79,24 +76,27 @@ class ParkDetailViewController: UIViewController {
     */
     
 }
-
+let imageCache = NSCache<NSString, UIImage>()
 extension UIImageView {
-    func downloadedFrom(url: URL, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        contentMode = mode
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            guard
-                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
-                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
-                let data = data, error == nil,
-                let image = UIImage(data: data)
-                else { return }
-            DispatchQueue.main.async() {
-                self.image = image
+    func loadImageUsingUrlString(urlString: String) {
+        if let cachedImage = imageCache.object(forKey: urlString as NSString) {
+            self.image = cachedImage
+            return
+        }
+        let url = NSURL(string: urlString)
+        let urlRequest = URLRequest(url: url! as URL)
+        URLSession.shared.dataTask(with: urlRequest as URLRequest, completionHandler: { (data, respose, error) in
+            if error != nil {
+                print(error)
+                return
             }
-            }.resume()
+            let imageForCache = UIImage(data: data!)
+            imageCache.setObject(imageForCache as! UIImage, forKey: urlString as NSString)
+            DispatchQueue.main.async {
+                self.image = UIImage(data: data!)
+            }
+        }).resume()
+
     }
-    func downloadedFrom(link: String, contentMode mode: UIViewContentMode = .scaleAspectFit) {
-        guard let url = URL(string: link) else { return }
-        downloadedFrom(url: url, contentMode: mode)
-    }
+
 }

@@ -33,8 +33,8 @@ class NPSAPIClient {
                 failure(error)
                 print("\(httpError)")
             } else {
-                //var parks = [Park]()
                 if let data = dataOrNil {
+                    
                     if let responseDictionary = try! JSONSerialization.jsonObject(with: data, options:[]) as? NSDictionary {
                         let retrievedData = responseDictionary["data"] as! [NSDictionary]
                         let predicate = NSPredicate(format: "designation CONTAINS[c] 'National Park'")
@@ -57,6 +57,7 @@ class NPSAPIClient {
         tracker.name = newPark.name
         tracker.state = newPark.state
         tracker.visited = newPark.visited
+        tracker.imageUrlString = newPark.imageUrlString
     }
 }
 

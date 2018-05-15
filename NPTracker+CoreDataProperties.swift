@@ -2,7 +2,7 @@
 //  NPTracker+CoreDataProperties.swift
 //  
 //
-//  Created by Rui Mao on 5/13/18.
+//  Created by Rui Mao on 5/15/18.
 //
 //
 
@@ -16,14 +16,12 @@ extension NPTracker {
         return NSFetchRequest<NPTracker>(entityName: "NPTracker")
     }
 
+    @NSManaged public var imageUrlString: String?
     @NSManaged public var lantitude: Double
     @NSManaged public var lastDateVisited: NSDate?
     @NSManaged public var longitude: Double
     @NSManaged public var name: String?
     @NSManaged public var state: String?
     @NSManaged public var visited: Bool
-    
-    
-
 
 }
