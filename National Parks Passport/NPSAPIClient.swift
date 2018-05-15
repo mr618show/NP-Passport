@@ -16,10 +16,12 @@ class NPSAPIClient {
     static let shareInstance = NPSAPIClient()
     static var parks = [Park]()
     func fectchParks(success: @escaping ([Park]) -> (), failure: @escaping (Error?) -> ()) {
-        let baseUrl = "https://developer.nps.gov/api/v1/parks?"
-        let constraint = "limit=1000"
-        let apikey = "cnQ86yV9EHAy3GulvrOYYbdrwdQMSVqVHY7B6mV6"
-        let url = URL(string:"\(baseUrl)\(constraint)&api_key=\(apikey)")
+//        let baseUrl = "https://developer.nps.gov/api/v1/parks?"
+//        let constraints = "limit=100"
+//        let apikey = "cnQ86yV9EHAy3GulvrOYYbdrwdQMSVqVHY7B6mV6"
+        let urlString = "https://developer.nps.gov/api/v1/parks?limit=50&fields=images&api_key=cnQ86yV9EHAy3GulvrOYYbdrwdQMSVqVHY7B6mV6"
+        //let url = URL(string:"\(baseUrl)\(constraints)&api_key=\(apikey)")
+        let url = URL(string: urlString)
         let request = URLRequest(url: url!)
         let session = URLSession(
             configuration: URLSessionConfiguration.default,

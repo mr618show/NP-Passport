@@ -139,7 +139,6 @@ extension ParksViewController: NPTrackerDelegate {
         mapView.removeAnnotation(target!)
         target?.visited = visited
         mapView.addAnnotation(target!)
-        
     }
 }
 

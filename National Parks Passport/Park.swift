@@ -20,6 +20,7 @@ class Park: NSObject, MKAnnotation  {
     var state: String
     var coordinate: CLLocationCoordinate2D
     var visited: Bool
+    var imageUrl: String
     var title: String? {return name}
     var subtitle: String? {return state}
     
@@ -43,12 +44,13 @@ class Park: NSObject, MKAnnotation  {
         return "tree-grey"
     }
     
-    init(name: String, summary: String, state: String, coordinate: CLLocationCoordinate2D) {
+    init(name: String, summary: String, state: String, coordinate: CLLocationCoordinate2D, imageUrl: String) {
         self.name = name
         self.summary = summary
         self.state = state
         self.coordinate = coordinate
         self.visited = false
+        self.imageUrl = imageUrl
     }
     static func < (lhs: Park, rhs: Park) -> Bool {
         return lhs.name.localizedStandardCompare(rhs.name) == .orderedAscending
@@ -59,6 +61,8 @@ class Park: NSObject, MKAnnotation  {
         self.summary = item.value(forKey: "description") as! String
         self.state = item.value(forKey: "states") as! String
         self.visited = false
+        let images = item.value(forKey: "images") as! [NSDictionary]
+        self.imageUrl = images.first?.value(forKey: "url") as! String
         let latLongString = item.value(forKey: "latLong") as! String
         let latitude = latLongString.getLatitude()!
         let longitude = latLongString.getLongitude()!

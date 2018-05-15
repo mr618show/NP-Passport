@@ -93,6 +93,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X8q-JF-HSA">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I have visited here." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cim-xV-c3Y">
                                 <rect key="frame" x="50" y="511" width="143" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -102,17 +105,14 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0VJ-nf-VHx">
                                 <rect key="frame" x="256" y="506" width="51" height="31"/>
                             </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a park name " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnF-QR-Fth">
-                                <rect key="frame" x="111" y="166" width="152" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="U2u-0c-pck"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is a park name " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnF-QR-Fth">
+                                <rect key="frame" x="111" y="135" width="152" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pep-Fv-Sws">
-                                <rect key="frame" x="30" y="233" width="315" height="20.5"/>
+                                <rect key="frame" x="30" y="232.5" width="315" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -123,13 +123,16 @@
                             <constraint firstItem="Pep-Fv-Sws" firstAttribute="centerX" secondItem="HnM-a5-rBP" secondAttribute="centerX" id="21M-e5-QLi"/>
                             <constraint firstItem="2lz-r1-ZZt" firstAttribute="bottom" secondItem="cim-xV-c3Y" secondAttribute="bottom" constant="135" id="3kH-9U-b8A"/>
                             <constraint firstItem="0VJ-nf-VHx" firstAttribute="centerY" secondItem="cim-xV-c3Y" secondAttribute="centerY" id="6fT-aN-lRR"/>
-                            <constraint firstItem="2lz-r1-ZZt" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vnF-QR-Fth" secondAttribute="trailing" constant="60" id="E28-C3-BN0"/>
-                            <constraint firstItem="vnF-QR-Fth" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2lz-r1-ZZt" secondAttribute="leading" constant="60" id="Hcx-gP-dbS"/>
-                            <constraint firstItem="2lz-r1-ZZt" firstAttribute="trailing" secondItem="Pep-Fv-Sws" secondAttribute="trailing" constant="30" id="I4M-QF-nLd"/>
-                            <constraint firstItem="vnF-QR-Fth" firstAttribute="top" secondItem="2lz-r1-ZZt" secondAttribute="top" constant="102" id="Irb-Ly-xAe"/>
+                            <constraint firstItem="X8q-JF-HSA" firstAttribute="bottom" secondItem="2lz-r1-ZZt" secondAttribute="bottom" id="AyT-gU-fW3"/>
+                            <constraint firstItem="2lz-r1-ZZt" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vnF-QR-Fth" secondAttribute="trailing" constant="30" id="E28-C3-BN0"/>
+                            <constraint firstItem="vnF-QR-Fth" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2lz-r1-ZZt" secondAttribute="leading" constant="30" id="Hcx-gP-dbS"/>
+                            <constraint firstItem="vnF-QR-Fth" firstAttribute="top" secondItem="2lz-r1-ZZt" secondAttribute="top" constant="71" id="Irb-Ly-xAe"/>
+                            <constraint firstItem="X8q-JF-HSA" firstAttribute="trailing" secondItem="2lz-r1-ZZt" secondAttribute="trailing" id="M1a-mm-0Bi"/>
                             <constraint firstItem="cim-xV-c3Y" firstAttribute="leading" secondItem="2lz-r1-ZZt" secondAttribute="leading" constant="50" id="RNX-0I-M20"/>
+                            <constraint firstItem="X8q-JF-HSA" firstAttribute="leading" secondItem="2lz-r1-ZZt" secondAttribute="leading" id="Xh1-ZI-mgH"/>
                             <constraint firstItem="2lz-r1-ZZt" firstAttribute="trailing" secondItem="0VJ-nf-VHx" secondAttribute="trailing" constant="70" id="ZOp-34-oT6"/>
-                            <constraint firstItem="Pep-Fv-Sws" firstAttribute="top" secondItem="vnF-QR-Fth" secondAttribute="bottom" constant="46" id="f46-pa-xvX"/>
+                            <constraint firstItem="Pep-Fv-Sws" firstAttribute="top" secondItem="vnF-QR-Fth" secondAttribute="bottom" constant="77" id="f46-pa-xvX"/>
+                            <constraint firstItem="X8q-JF-HSA" firstAttribute="top" secondItem="2lz-r1-ZZt" secondAttribute="top" id="hba-DE-V7b"/>
                             <constraint firstItem="Pep-Fv-Sws" firstAttribute="leading" secondItem="2lz-r1-ZZt" secondAttribute="leading" constant="30" id="r73-mS-Agj"/>
                             <constraint firstItem="vnF-QR-Fth" firstAttribute="centerX" secondItem="HnM-a5-rBP" secondAttribute="centerX" id="yWa-bY-jhb"/>
                         </constraints>
@@ -137,13 +140,14 @@
                     </view>
                     <connections>
                         <outlet property="nameLabel" destination="vnF-QR-Fth" id="eHn-E8-lHC"/>
+                        <outlet property="parkImageView" destination="X8q-JF-HSA" id="TIC-7J-Ijy"/>
                         <outlet property="summaryLabel" destination="Pep-Fv-Sws" id="zoG-wE-ixf"/>
                         <outlet property="visitedSwitch" destination="0VJ-nf-VHx" id="FXv-Dj-mvX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4UU-kp-nwm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2345" y="118"/>
+            <point key="canvasLocation" x="2344.8000000000002" y="117.39130434782609"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zSq-2V-Qlp">
