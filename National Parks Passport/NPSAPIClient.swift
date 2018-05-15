@@ -50,15 +50,11 @@ class NPSAPIClient {
         task.resume()
     }
     func saveToCoreData(newPark:Park) {
-        //let context = AppDelegate.viewContext
-        let appDel = UIApplication.shared.delegate as! AppDelegate
-        let context = appDel.persistentContainer.viewContext
-        let tracker: NSManagedObject = NSEntityDescription.insertNewObject(forEntityName: "NPTracker", into: context)
-        tracker.setValue(newPark.name, forKey: "name")
-        tracker.setValue(newPark.state, forKey: "state")
-        //park.setValue(newPark.coordinate.latitude, forKey: "lantitude")
-        //park.setValue(newPark.coordinate.longitude, forKey: "longitude")
-        tracker.setValue(newPark.visited, forKey: "visited")
+        let context = AppDelegate.viewContext
+        let tracker = NPTracker(context: context)
+        tracker.name = newPark.name
+        tracker.state = newPark.state
+        tracker.visited = newPark.visited
     }
 }
 

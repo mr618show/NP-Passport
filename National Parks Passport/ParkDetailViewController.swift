@@ -21,13 +21,16 @@ class ParkDetailViewController: UIViewController {
     var trackerDelegate: NPTrackerDelegate!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         if let park = park {
             print("getter: \(park.name)")
             nameLabel.text = park.name
             summaryLabel.text = park.summary
+            let context = AppDelegate.viewContext
+            if let tracker = park.fetchTracker(name: park.name, managedObjectContext: context).first {
+                visitedSwitch.isOn = tracker.visited
+            }
         }
+        
         visitedSwitch.addTarget(self, action: #selector(ParkDetailViewController.switchValueChanged(sender:)), for: UIControlEvents.valueChanged)
        
     }

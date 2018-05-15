@@ -24,9 +24,6 @@ class ParkView: MKMarkerAnnotationView {
             } else {
                 image = nil
             }
- 
-            
-
         }
     }
 }

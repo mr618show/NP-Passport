@@ -79,7 +79,7 @@ class Park: NSObject, MKAnnotation  {
             return results
             
         } catch let error as NSError {
-            
+            print(error)
         }
         return []
     }
