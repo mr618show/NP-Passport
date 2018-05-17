@@ -1,6 +1,6 @@
 # NPTracker
 
-An iOS application for keeping track of visited US National Parks 
+A lightweight, geo-aware application for keeping track of your visited National Parks in United States 
 
 
 Completed user stories:
