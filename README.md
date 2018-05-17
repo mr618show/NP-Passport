@@ -27,7 +27,7 @@ JTAppleCalendar (https://github.com/patchthecode/JTAppleCalendar)
 
 Walkthrough of all user stories:
 
-![Video Walkthrough]() 
+![Video Walkthrough](https://github.com/mr618show/NPTracker/blob/master/nptracker.gif) 
 
 
 
