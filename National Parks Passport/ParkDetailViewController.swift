@@ -28,17 +28,21 @@ class ParkDetailViewController: UIViewController {
             if let tracker = park.fetchTracker(name: park.name, managedObjectContext: context).first {
                 visitedSwitch.isOn = tracker.visited
                 if tracker.imageUrlString != nil {
-                    self.parkImageView.loadImageUsingUrlString(urlString: tracker.imageUrlString!)
+                    DispatchQueue.main.async {
+                        self.parkImageView.loadImageUsingUrlString(urlString: tracker.imageUrlString!)
+                    }
+                    
                 } else {
                     print ("can't load image")
                 }
+            }
 
             }
-        }
-        
+    
         visitedSwitch.addTarget(self, action: #selector(ParkDetailViewController.switchValueChanged(sender:)), for: UIControlEvents.valueChanged)
        
     }
+
     @objc func switchValueChanged(sender: UISwitch!) {
         guard let currentPark = park else {return}
 
@@ -46,6 +50,7 @@ class ParkDetailViewController: UIViewController {
             let context = AppDelegate.viewContext
             if let tracker = currentPark.fetchTracker(name: currentPark.name, managedObjectContext: context).first {
                 tracker.visited = true
+                print("switch is on")
                 trackerDelegate.changeParkViewColor(park: currentPark, visited: true)
                 self.dismiss(animated: true, completion: nil)
             }
@@ -53,6 +58,7 @@ class ParkDetailViewController: UIViewController {
             let context = AppDelegate.viewContext
             if let tracker = currentPark.fetchTracker(name: currentPark.name, managedObjectContext: context).first {
                 tracker.visited = false
+                print("switch is off")
                 trackerDelegate.changeParkViewColor(park: currentPark, visited: false)
                 self.dismiss(animated: true, completion: nil)
             }

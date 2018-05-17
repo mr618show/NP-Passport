@@ -15,7 +15,7 @@ import CoreData
 class NPSAPIClient {
     static let shareInstance = NPSAPIClient()
     static var parks = [Park]()
-    func fectchParks(success: @escaping ([Park]) -> (), failure: @escaping (Error?) -> ()) {
+    func fetchParks(success: @escaping ([Park]) -> (), failure: @escaping (Error?) -> ()) {
         let baseUrl = "https://developer.nps.gov/api/v1/parks?"
         let query = "limit=100&q=National%20Park&fields=images"
         let apikey = "cnQ86yV9EHAy3GulvrOYYbdrwdQMSVqVHY7B6mV6"
@@ -33,7 +33,6 @@ class NPSAPIClient {
                 print("\(httpError)")
             } else {
                 if let data = dataOrNil {
-                    
                     if let responseDictionary = try! JSONSerialization.jsonObject(with: data, options:[]) as? NSDictionary {
                         let retrievedData = responseDictionary["data"] as! [NSDictionary]
                         let predicate = NSPredicate(format: "designation CONTAINS[c] 'National Park'")
@@ -57,6 +56,26 @@ class NPSAPIClient {
         tracker.state = newPark.state
         tracker.visited = newPark.visited
         tracker.imageUrlString = newPark.imageUrlString
+    }
+    
+    func fetchFromCoreData() -> [Park] {
+        var fetchResult = [Park]()
+        let context = AppDelegate.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NPTracker")
+        request.returnsObjectsAsFaults = false
+        do {
+            let result = try context.fetch(request)
+            for tracker in result as! [NSManagedObject] {
+                let park = Park(name: tracker.value(forKey: "name") as! String , summary: tracker.value(forKey: "summary") as! String, state: tracker.value(forKey: "state") as! String, coordinate: CLLocationCoordinate2D(latitude: tracker.value(forKey: "latitude") as! Double, longitude: tracker.value(forKey: "longitude") as! Double), imageUrlString: tracker.value(forKey: "imageUrlString") as! String)
+                fetchResult.append(park)
+                
+            }
+            
+        } catch {
+            print("Failed")
+            
+        }
+        return fetchResult
     }
 }
 

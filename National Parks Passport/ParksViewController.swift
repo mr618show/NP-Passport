@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import CoreData
 
 protocol HandleMapSearch {
     func dropPinZoomIn(park: Park)
@@ -20,11 +21,13 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
     var parks: [Park] = []
     private var locationManager: CLLocationManager!
     var resultSearchController: UISearchController? = nil
+
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
         mapView.showsUserLocation = true
         mapView.register(ParkView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
+
         loadAllParks()
         let parkSearchTable = storyboard!.instantiateViewController(withIdentifier: "ParkSearchTable") as! ParkSearchTable
         resultSearchController = UISearchController(searchResultsController: parkSearchTable)
@@ -67,7 +70,7 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
     }
     
     func loadAllParks() {
-        NPSAPIClient.shareInstance.fectchParks(success: { (parks: [Park]) in
+        NPSAPIClient.shareInstance.fetchParks(success: { (parks: [Park]) in
             self.parks = parks
             print("Successfully loaded \(parks.count) parks")
             DispatchQueue.main.async {
@@ -82,22 +85,6 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
 }
 
 extension ParksViewController: MKMapViewDelegate {
-//    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//        guard let annotation = annotation as? Park else { return nil }
-//        let identifier = "marker"
-//        var view: MKMarkerAnnotationView
-//        if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
-//            as? MKMarkerAnnotationView {
-//            dequeuedView.annotation = annotation
-//            view = dequeuedView
-//        } else {
-//            view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//            view.canShowCallout = true
-//            view.calloutOffset = CGPoint(x: -5, y: 5)
-//            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-//        }
-//        return view
-//    }
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if let annotation = view.annotation as? Park {
         performSegue(withIdentifier: "parkDetailSegue", sender: annotation)
