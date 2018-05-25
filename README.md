@@ -1,6 +1,6 @@
 # NPTracker
 
-An iOS application for keeping track of visited US National Parks 
+A lightweight, geo-aware application for keeping track of your visited National Parks in United States 
 
 
 Completed user stories:
@@ -8,6 +8,8 @@ Map View
  - Loading 58 national parks location from coordinates retrieved from NPS API
  - Persist all the park data in Core Data for offline usage
  - Map View reload pins when data in Core Data is changed
+ - Search bar with drop down menu shows suggested search result
+ - Map view zoom in to selected park location after selection
  - Showing custom annotation with markers with color-coding for parks visited
  - Custom callout accessory views with segue to park detail View
 
@@ -27,7 +29,7 @@ JTAppleCalendar (https://github.com/patchthecode/JTAppleCalendar)
 
 Walkthrough of all user stories:
 
-![Video Walkthrough]() 
+![Video Walkthrough](https://github.com/mr618show/NPTracker/blob/master/nptracker.gif) 
 
 
 
