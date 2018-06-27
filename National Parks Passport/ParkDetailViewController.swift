@@ -96,11 +96,13 @@ extension UIImageView {
                 print(error)
                 return
             }
-            let imageForCache = UIImage(data: data!)
-            imageCache.setObject(imageForCache as! UIImage, forKey: urlString as NSString)
-            DispatchQueue.main.async {
-                self.image = UIImage(data: data!)
+            if let imageForCache = UIImage(data: data!) {
+                imageCache.setObject(imageForCache as! UIImage, forKey: urlString as NSString)
+                DispatchQueue.main.async {
+                    self.image = UIImage(data: data!)
+                }
             }
+
         }).resume()
 
     }

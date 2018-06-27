@@ -45,9 +45,13 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
         parkSearchTable.handleMapSearchDelegate = self
     }
     
+    @IBAction func onRestButton(_ sender: UIButton) {
+        lookUpCurrentLocation()
+        
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //lookUpCurrentLocation()
+        lookUpCurrentLocation()
     }
     
     //set region
@@ -64,7 +68,7 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let currentLocation: CLLocation = locations[0] as CLLocation
-        let viewRegion = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 4000, 4000)
+        let viewRegion = MKCoordinateRegionMakeWithDistance(currentLocation.coordinate, 4000000, 4000000)
         mapView.setRegion(viewRegion, animated: false)
         
     }
