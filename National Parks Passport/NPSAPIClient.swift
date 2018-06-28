@@ -55,7 +55,10 @@ class NPSAPIClient {
         tracker.name = newPark.name
         tracker.state = newPark.state
         tracker.visited = newPark.visited
+        tracker.summary = newPark.summary
         tracker.imageUrlString = newPark.imageUrlString
+        tracker.latitude = newPark.coordinate.latitude
+        tracker.longitude = newPark.coordinate.longitude
     }
     
     func fetchFromCoreData() -> [Park] {
@@ -66,7 +69,7 @@ class NPSAPIClient {
         do {
             let result = try context.fetch(request)
             for tracker in result as! [NSManagedObject] {
-                let park = Park(name: tracker.value(forKey: "name") as! String , summary: tracker.value(forKey: "summary") as! String, state: tracker.value(forKey: "state") as! String, coordinate: CLLocationCoordinate2D(latitude: tracker.value(forKey: "latitude") as! Double, longitude: tracker.value(forKey: "longitude") as! Double), imageUrlString: tracker.value(forKey: "imageUrlString") as! String)
+                let park = Park(name: tracker.value(forKey: "name") as! String , summary: tracker.value(forKey: "summary") as! String, state: tracker.value(forKey: "state") as! String, coordinate: CLLocationCoordinate2D(latitude: tracker.value(forKey: "latitude") as! Double, longitude: tracker.value(forKey: "longitude") as! Double), imageUrlString: tracker.value(forKey: "imageUrlString") as! String, visited: tracker.value(forKey: "visited") as! Bool)
                 fetchResult.append(park)
                 
             }
@@ -76,6 +79,17 @@ class NPSAPIClient {
             
         }
         return fetchResult
+    }
+    
+    var isEmpty : Bool {
+        do{
+            let request = NSFetchRequest<NSFetchRequestResult>(entityName: "NPTracker")
+            let context = AppDelegate.viewContext
+            let count  = try context.count(for: request)
+            return count == 0 ? true : false
+        }catch{
+            return true
+        }
     }
 }
 

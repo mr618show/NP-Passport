@@ -21,6 +21,8 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
     var parks: [Park] = []
     private var locationManager: CLLocationManager!
     var resultSearchController: UISearchController? = nil
+    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,12 +48,15 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
     }
     
     @IBAction func onRestButton(_ sender: UIButton) {
-        lookUpCurrentLocation()
+        
+        let viewRegion = MKCoordinateRegionMakeWithDistance(CLLocationCoordinate2D(latitude: 39.8283, longitude: -98.5795), 6000000, 6000000)
+        mapView.setRegion(viewRegion, animated: false)
+
         
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        lookUpCurrentLocation()
+        //lookUpCurrentLocation()
     }
     
     //set region
@@ -72,19 +77,34 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
         mapView.setRegion(viewRegion, animated: false)
         
     }
-    
+    //if first time use, populate core data, load from core data;
+    //if core data is not nil, load from core data;
     func loadAllParks() {
-        NPSAPIClient.shareInstance.fetchParks(success: { (parks: [Park]) in
-            self.parks = parks
-            print("Successfully loaded \(parks.count) parks")
+        
+        if NPSAPIClient.shareInstance.isEmpty {
+            print("First time loading parks...")
+            NPSAPIClient.shareInstance.fetchParks(success: { (parks: [Park]) in
+                self.parks = parks
+                print("Successfully loaded \(parks.count) parks")
+                DispatchQueue.main.async {
+                    for park in self.parks {
+                        self.mapView.addAnnotation(park)
+                    }
+                }
+            }) { (error: Error?) in
+                print("error \(error?.localizedDescription ?? "Problem loading parks")")
+            }
+            
+        } else {
+            print("loading parks from core data...")
+            self.parks = NPSAPIClient.shareInstance.fetchFromCoreData()
             DispatchQueue.main.async {
                 for park in self.parks {
                     self.mapView.addAnnotation(park)
                 }
             }
-        }) { (error: Error?) in
-            print("error \(error?.localizedDescription ?? "Problem loading parks")")
         }
+
     }
 }
 

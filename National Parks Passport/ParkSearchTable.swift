@@ -13,11 +13,18 @@ import MapKit
 class ParkSearchTable: UITableViewController {
     var matchingItems: [String]!
     var parkNames = [String]()
+    var parks = [Park]()
     var handleMapSearchDelegate: HandleMapSearch? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let parks = NPSAPIClient.parks
+        self.tableView.separatorStyle = .none
+        if !NPSAPIClient.shareInstance.isEmpty {
+            parks = NPSAPIClient.shareInstance.fetchFromCoreData()
+            print("core data has \(parks.count) parks")
+        } else {
+            parks = NPSAPIClient.parks
+        }
         view.backgroundColor = .clear
         for park in parks {
             let parkName = park.name
@@ -55,7 +62,7 @@ extension ParkSearchTable {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedParkName = matchingItems[indexPath.row]
-        let selectedPark = NPSAPIClient.parks.filter{$0.name == selectedParkName}.first
+        let selectedPark = parks.filter{$0.name == selectedParkName}.first
         DispatchQueue.main.async {
             self.handleMapSearchDelegate?.dropPinZoomIn(park: selectedPark!)
         }

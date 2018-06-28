@@ -44,12 +44,12 @@ class Park: NSObject, MKAnnotation  {
         return "tree-grey"
     }
     
-    init(name: String, summary: String, state: String, coordinate: CLLocationCoordinate2D, imageUrlString: String) {
+    init(name: String, summary: String, state: String, coordinate: CLLocationCoordinate2D, imageUrlString: String, visited: Bool) {
         self.name = name
         self.summary = summary
         self.state = state
         self.coordinate = coordinate
-        self.visited = false
+        self.visited = visited
         self.imageUrlString = imageUrlString
     }
     static func < (lhs: Park, rhs: Park) -> Bool {
