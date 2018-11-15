@@ -135,6 +135,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="0us-6A-BAh">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="color" red="0.32463515228426398" green="0.32463515228426398" blue="0.32463515228426398" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -161,6 +166,7 @@
                         <viewLayoutGuide key="safeArea" id="2lz-r1-ZZt"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="0us-6A-BAh" id="zrc-Xg-neg"/>
                         <outlet property="nameLabel" destination="vnF-QR-Fth" id="eHn-E8-lHC"/>
                         <outlet property="parkImageView" destination="X8q-JF-HSA" id="TIC-7J-Ijy"/>
                         <outlet property="summaryLabel" destination="Pep-Fv-Sws" id="zoG-wE-ixf"/>

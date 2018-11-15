@@ -17,6 +17,7 @@ class ParkDetailViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
     @IBOutlet weak var visitedSwitch: UISwitch!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var park: Park?
     var trackerDelegate: NPTrackerDelegate!
     override func viewDidLoad() {
@@ -29,9 +30,8 @@ class ParkDetailViewController: UIViewController {
                 visitedSwitch.isOn = tracker.visited
                 if tracker.imageUrlString != nil {
                     DispatchQueue.main.async {
-                        self.parkImageView.loadImageUsingUrlString(urlString: tracker.imageUrlString!)
+                        self.parkImageView.loadImageUsingUrlString(urlString: tracker.imageUrlString!, activityIndicator:  self.activityIndicator)
                     }
-                    
                 } else {
                     print ("can't load image")
                 }
@@ -84,7 +84,7 @@ class ParkDetailViewController: UIViewController {
 }
 let imageCache = NSCache<NSString, UIImage>()
 extension UIImageView {
-    func loadImageUsingUrlString(urlString: String) {
+    func loadImageUsingUrlString(urlString: String, activityIndicator: UIActivityIndicatorView) {
         if let cachedImage = imageCache.object(forKey: urlString as NSString) {
             self.image = cachedImage
             return
@@ -100,6 +100,7 @@ extension UIImageView {
                 imageCache.setObject(imageForCache as! UIImage, forKey: urlString as NSString)
                 DispatchQueue.main.async {
                     self.image = UIImage(data: data!)
+                    activityIndicator.stopAnimating()
                 }
             }
 
