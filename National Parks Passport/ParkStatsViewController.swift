@@ -10,8 +10,9 @@ import UIKit
 
 class ParkStatsViewController: UIViewController {
     @IBOutlet weak var pieChartContainerView: UIView!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var summaryLabel: UILabel!
+    @IBOutlet weak var staticLabel1: UILabel!
+    @IBOutlet weak var staticLabel2: UILabel!
+    @IBOutlet weak var countingLabel: CountingLabel!
     @IBOutlet weak var motivationLabel: UILabel!
     var parks: [Park] = [];
     var visitedParks: [Park] = [];
@@ -33,8 +34,7 @@ class ParkStatsViewController: UIViewController {
             Segment(color: .gray, value: CGFloat(unVisitedParks.count))
         ]
         pieChartContainerView.addSubview(pieChartView)
-        timeLabel.text = Date().description
-        summaryLabel.text = "You have visited \(visitedParks.count) National Parks!"
+        
         var motivationLableText: String {
             switch visitedParks.count {
             case 0:
@@ -45,14 +45,13 @@ class ParkStatsViewController: UIViewController {
                 return "Good job. Keep it up!"
             }
         }
-        
         motivationLabel.text = motivationLableText
-        
-        
-
-        // Do any additional setup after loading the view.
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        countingLabel.count(fromValue: 0, to: Float(visitedParks.count), withDuration: 0.5, andAnimationType: .EaseOut, andCounterType: .Int)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

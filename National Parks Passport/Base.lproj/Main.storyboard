@@ -120,47 +120,55 @@
                                     <constraint firstAttribute="height" constant="200" id="m7o-5z-VVB"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="As of" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ln7-Hw-vOg">
-                                <rect key="frame" x="73" y="124" width="40" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By far you have visitied" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7V-cu-HkE">
+                                <rect key="frame" x="100" y="96" width="175" height="27"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="17"/>
                                 <nil key="textColor"/>
+                                <color key="highlightedColor" red="0.0078431372550000003" green="0.49019607840000001" blue="0.33333333329999998" alpha="0.21848244859999999" colorSpace="custom" customColorSpace="sRGB"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fTb-lJ-2Jg" customClass="CountingLabel" customModule="National_Parks_Passport" customModuleProvider="target">
+                                <rect key="frame" x="180" y="139" width="16" height="40"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="28"/>
+                                <color key="textColor" red="0.0" green="0.45423540609137059" blue="0.31199445049191127" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIS-lh-rcd">
-                                <rect key="frame" x="141" y="124" width="139" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="National Parks." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nxs-Sm-awI">
+                                <rect key="frame" x="130" y="195" width="114" height="27"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="17"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
+                                <color key="highlightedColor" red="0.0078431372550000003" green="0.49019607840000001" blue="0.33333333329999998" alpha="0.21848244859999999" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You have visited ... National Parks!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7V-cu-HkE">
-                                <rect key="frame" x="73" y="161" width="261" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzf-6f-8eh">
+                                <rect key="frame" x="20" y="483.5" width="335" height="27"/>
+                                <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="27"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzf-6f-8eh">
-                                <rect key="frame" x="87" y="495" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
+                                <color key="highlightedColor" red="0.0078431372550000003" green="0.49019607840000001" blue="0.33333333329999998" alpha="0.21848244859999999" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="3kb-5V-fNC" firstAttribute="trailing" secondItem="vzf-6f-8eh" secondAttribute="trailing" constant="20" id="6oF-nI-WUJ"/>
+                            <constraint firstItem="vzf-6f-8eh" firstAttribute="centerX" secondItem="K7Y-M2-ZGv" secondAttribute="centerX" id="902-HF-V3E"/>
+                            <constraint firstItem="O7V-cu-HkE" firstAttribute="centerX" secondItem="K7Y-M2-ZGv" secondAttribute="centerX" id="KAa-nu-JTQ"/>
+                            <constraint firstItem="O7V-cu-HkE" firstAttribute="centerX" secondItem="K7Y-M2-ZGv" secondAttribute="centerX" id="Smo-VJ-blD"/>
+                            <constraint firstItem="fTb-lJ-2Jg" firstAttribute="top" secondItem="O7V-cu-HkE" secondAttribute="bottom" constant="16" id="WiQ-GS-skm"/>
+                            <constraint firstItem="O7V-cu-HkE" firstAttribute="top" secondItem="3kb-5V-fNC" secondAttribute="top" constant="32" id="YA0-Pa-3HG"/>
+                            <constraint firstItem="Nxs-Sm-awI" firstAttribute="top" secondItem="fTb-lJ-2Jg" secondAttribute="bottom" constant="16" id="mgc-kS-8ov"/>
+                            <constraint firstItem="vzf-6f-8eh" firstAttribute="top" secondItem="tHR-aX-RYm" secondAttribute="bottom" constant="50" id="mtE-yB-Tfp"/>
+                            <constraint firstItem="fTb-lJ-2Jg" firstAttribute="centerX" secondItem="K7Y-M2-ZGv" secondAttribute="centerX" id="pvI-xP-cVr"/>
+                            <constraint firstItem="Nxs-Sm-awI" firstAttribute="centerX" secondItem="K7Y-M2-ZGv" secondAttribute="centerX" id="sse-Eh-Qh9"/>
+                            <constraint firstItem="vzf-6f-8eh" firstAttribute="leading" secondItem="3kb-5V-fNC" secondAttribute="leading" constant="20" id="wWv-vW-zr4"/>
                             <constraint firstItem="tHR-aX-RYm" firstAttribute="centerY" secondItem="K7Y-M2-ZGv" secondAttribute="centerY" id="xmc-Dn-JWg"/>
                             <constraint firstItem="tHR-aX-RYm" firstAttribute="centerX" secondItem="K7Y-M2-ZGv" secondAttribute="centerX" id="yVQ-k0-jQi"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3kb-5V-fNC"/>
                     </view>
                     <connections>
+                        <outlet property="countingLabel" destination="fTb-lJ-2Jg" id="SWI-Vc-2Xd"/>
                         <outlet property="motivationLabel" destination="vzf-6f-8eh" id="AlW-HP-2wz"/>
                         <outlet property="pieChartContainerView" destination="tHR-aX-RYm" id="Got-KW-NWu"/>
-                        <outlet property="summaryLabel" destination="O7V-cu-HkE" id="cKq-Kb-Vib"/>
-                        <outlet property="timeLabel" destination="GIS-lh-rcd" id="iRo-fm-Kpj"/>
+                        <outlet property="staticLabel1" destination="O7V-cu-HkE" id="TnQ-AF-h7b"/>
+                        <outlet property="staticLabel2" destination="Nxs-Sm-awI" id="KNr-ad-kt9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kx1-Cg-PdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
