@@ -87,6 +87,7 @@ extension UIImageView {
     func loadImageUsingUrlString(urlString: String, activityIndicator: UIActivityIndicatorView) {
         if let cachedImage = imageCache.object(forKey: urlString as NSString) {
             self.image = cachedImage
+            activityIndicator.stopAnimating()
             return
         }
         let url = NSURL(string: urlString)
