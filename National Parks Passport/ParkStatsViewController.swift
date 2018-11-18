@@ -45,6 +45,7 @@ class ParkStatsViewController: UIViewController {
                 return "Good job. Keep it up!"
             }
         }
+        
         motivationLabel.text = motivationLableText
     }
 

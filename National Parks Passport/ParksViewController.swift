@@ -17,6 +17,7 @@ protocol HandleMapSearch {
 
 class ParksViewController: UIViewController, CLLocationManagerDelegate  {
 
+    @IBOutlet weak var activitityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var mapView: MKMapView!
     var parks: [Park] = []
     private var locationManager: CLLocationManager!
@@ -80,29 +81,29 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
     //if first time use, populate core data, load from core data;
     //if core data is not nil, load from core data;
     func loadAllParks() {
-        
         if NPSAPIClient.shareInstance.isEmpty {
-            print("First time loading parks...")
             NPSAPIClient.shareInstance.fetchParks(success: { (parks: [Park]) in
                 self.parks = parks
-                print("Successfully loaded \(parks.count) parks")
                 DispatchQueue.main.async {
                     for park in self.parks {
                         self.mapView.addAnnotation(park)
-                    }
+                    }  
                 }
+                self.activitityIndicator.stopAnimating()
             }) { (error: Error?) in
-                print("error \(error?.localizedDescription ?? "Problem loading parks")")
+                Alert.showBasic(title: "Oops, something is wrong", message: "Please check your internet connection and retry", vc: self)
+                self.activitityIndicator.stopAnimating()
+                //print("error \(error?.localizedDescription ?? "Problem loading parks")")
             }
             
         } else {
-            print("loading parks from core data...")
             self.parks = NPSAPIClient.shareInstance.fetchFromCoreData()
             DispatchQueue.main.async {
                 for park in self.parks {
                     self.mapView.addAnnotation(park)
                 }
             }
+            self.activitityIndicator.stopAnimating()
         }
 
     }

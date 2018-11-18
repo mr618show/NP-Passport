@@ -10,6 +10,7 @@
 		A5481E18219DFF390036F25F /* ParkStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5481E16219DFF390036F25F /* ParkStatsViewController.swift */; };
 		A5481E1B219E1B3E0036F25F /* pieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5481E1A219E1B3E0036F25F /* pieChartView.swift */; };
 		A5481E1D219F54A90036F25F /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5481E1C219F54A80036F25F /* CountingLabel.swift */; };
+		A548885521A08A4F006F997C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548885421A08A4F006F997C /* Alert.swift */; };
 		A56DE7F920A8E68400BA8693 /* NPTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A56DE7F720A8E68400BA8693 /* NPTracker.xcdatamodeld */; };
 		A56DE7FD20A8F03200BA8693 /* ParkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56DE7FC20A8F03200BA8693 /* ParkDetailViewController.swift */; };
 		A570E88520A248BF00772AD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E88420A248BF00772AD0 /* AppDelegate.swift */; };
@@ -31,6 +32,7 @@
 		A5481E16219DFF390036F25F /* ParkStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkStatsViewController.swift; sourceTree = "<group>"; };
 		A5481E1A219E1B3E0036F25F /* pieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pieChartView.swift; sourceTree = "<group>"; };
 		A5481E1C219F54A80036F25F /* CountingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountingLabel.swift; sourceTree = "<group>"; };
+		A548885421A08A4F006F997C /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		A56DE7F820A8E68400BA8693 /* Park.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Park.xcdatamodel; sourceTree = "<group>"; };
 		A56DE7FC20A8F03200BA8693 /* ParkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkDetailViewController.swift; sourceTree = "<group>"; };
 		A570E88120A248BF00772AD0 /* National Parks Passport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "National Parks Passport.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,7 @@
 				A5481E16219DFF390036F25F /* ParkStatsViewController.swift */,
 				A5481E1A219E1B3E0036F25F /* pieChartView.swift */,
 				A5481E1C219F54A80036F25F /* CountingLabel.swift */,
+				A548885421A08A4F006F997C /* Alert.swift */,
 			);
 			path = "National Parks Passport";
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				A570E88720A248BF00772AD0 /* ParksViewController.swift in Sources */,
 				A56DE7FD20A8F03200BA8693 /* ParkDetailViewController.swift in Sources */,
 				A570E88520A248BF00772AD0 /* AppDelegate.swift in Sources */,
+				A548885521A08A4F006F997C /* Alert.swift in Sources */,
 				A570E8A820A5F9AB00772AD0 /* ParkView.swift in Sources */,
 				A5481E1B219E1B3E0036F25F /* pieChartView.swift in Sources */,
 				A570E89B20A2BCBE00772AD0 /* Helper.swift in Sources */,
