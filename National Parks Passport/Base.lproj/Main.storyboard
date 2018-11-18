@@ -113,20 +113,20 @@
                                 <color key="textColor" red="0.0" green="0.45423540609137059" blue="0.31199445049191127" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="National Parks." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nxs-Sm-awI">
-                                <rect key="frame" x="130.5" y="195" width="114" height="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="National Parks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nxs-Sm-awI">
+                                <rect key="frame" x="133.5" y="195" width="108.5" height="27"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" red="0.0078431372550000003" green="0.49019607840000001" blue="0.33333333329999998" alpha="0.21848244859999999" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzf-6f-8eh">
-                                <rect key="frame" x="20" y="483.5" width="335" height="29.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzf-6f-8eh">
+                                <rect key="frame" x="20" y="483.5" width="335" height="0.0"/>
                                 <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="27"/>
                                 <color key="textColor" red="0.1450980392" green="0.49019607840000001" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="highlightedColor" red="0.0078431372550000003" green="0.49019607840000001" blue="0.33333333329999998" alpha="0.21848244859999999" colorSpace="custom" customColorSpace="sRGB"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.97647058823529409" green="0.96078431372549022" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="3kb-5V-fNC" firstAttribute="trailing" secondItem="vzf-6f-8eh" secondAttribute="trailing" constant="20" id="6oF-nI-WUJ"/>
                             <constraint firstItem="vzf-6f-8eh" firstAttribute="centerX" secondItem="K7Y-M2-ZGv" secondAttribute="centerX" id="902-HF-V3E"/>

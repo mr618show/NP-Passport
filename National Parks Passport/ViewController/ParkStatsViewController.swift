@@ -35,7 +35,14 @@ class ParkStatsViewController: UIViewController {
         ]
         pieChartContainerView.addSubview(pieChartView)
         
-        var motivationLableText: String {
+
+        
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        countingLabel.count(fromValue: 0, to: Float(visitedParks.count), withDuration: 0.5, andAnimationType: .EaseOut, andCounterType: .Int)
+        var motivationLabelText: String {
             switch visitedParks.count {
             case 0:
                 return "Get started with your first park!"
@@ -45,13 +52,8 @@ class ParkStatsViewController: UIViewController {
                 return "Good job. Keep it up!"
             }
         }
-        
-        motivationLabel.text = motivationLableText
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        countingLabel.count(fromValue: 0, to: Float(visitedParks.count), withDuration: 0.5, andAnimationType: .EaseOut, andCounterType: .Int)
+        motivationLabel.fadeTransition(0.8)
+        motivationLabel.text = motivationLabelText
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
