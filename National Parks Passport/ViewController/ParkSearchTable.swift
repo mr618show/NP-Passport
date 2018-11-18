@@ -32,15 +32,6 @@ class ParkSearchTable: UITableViewController {
             self.parkNames.append(parkName)
         }
     }
-    
-    func utf8DecodedString(input: String)-> String {
-        let data = input.data(using: .utf8)
-        if let message = String(data: data!, encoding: .nonLossyASCII){
-            return message
-        }
-        return ""
-    }
-    
 }
 
 extension ParkSearchTable : UISearchResultsUpdating {
@@ -75,10 +66,7 @@ extension ParkSearchTable {
         cell.parkNameLabel?.font = UIFont(name: "Helvetica", size: 16)
         cell.selectionStyle = .gray
         cell.parkNameLabel?.textColor = .white
-        //cell.contentView.backgroundColor =
         cell.backgroundColor = UIColor(red: 32/255, green: 54/255, blue: 79/255, alpha: 0.7)
-            
-         //   UIColor(red: 216/255, green: 225/255, blue: 216/255, alpha: 0.5)
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

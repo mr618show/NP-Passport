@@ -30,8 +30,8 @@ class ParksViewController: UIViewController, CLLocationManagerDelegate  {
         mapView.delegate = self
         mapView.showsUserLocation = true
         mapView.register(ParkView.self, forAnnotationViewWithReuseIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier)
-
         loadAllParks()
+        showReview()
         let parkSearchTable = storyboard!.instantiateViewController(withIdentifier: "ParkSearchTable") as! ParkSearchTable
         resultSearchController = UISearchController(searchResultsController: parkSearchTable)
         resultSearchController?.searchResultsUpdater = parkSearchTable as UISearchResultsUpdating

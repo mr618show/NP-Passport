@@ -13,6 +13,7 @@
 		A548885521A08A4F006F997C /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548885421A08A4F006F997C /* Alert.swift */; };
 		A548885C21A1EBF3006F997C /* ParkSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548885A21A1EBF3006F997C /* ParkSearchTableViewCell.swift */; };
 		A548885D21A1EBF3006F997C /* ParkSearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A548885B21A1EBF3006F997C /* ParkSearchTableViewCell.xib */; };
+		A548886021A20295006F997C /* ReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A548885F21A20295006F997C /* ReviewRequest.swift */; };
 		A56DE7F920A8E68400BA8693 /* NPTracker.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A56DE7F720A8E68400BA8693 /* NPTracker.xcdatamodeld */; };
 		A56DE7FD20A8F03200BA8693 /* ParkDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A56DE7FC20A8F03200BA8693 /* ParkDetailViewController.swift */; };
 		A570E88520A248BF00772AD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A570E88420A248BF00772AD0 /* AppDelegate.swift */; };
@@ -37,6 +38,7 @@
 		A548885421A08A4F006F997C /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		A548885A21A1EBF3006F997C /* ParkSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkSearchTableViewCell.swift; sourceTree = "<group>"; };
 		A548885B21A1EBF3006F997C /* ParkSearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ParkSearchTableViewCell.xib; sourceTree = "<group>"; };
+		A548885F21A20295006F997C /* ReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRequest.swift; sourceTree = "<group>"; };
 		A56DE7F820A8E68400BA8693 /* Park.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Park.xcdatamodel; sourceTree = "<group>"; };
 		A56DE7FC20A8F03200BA8693 /* ParkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkDetailViewController.swift; sourceTree = "<group>"; };
 		A570E88120A248BF00772AD0 /* National Parks Passport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "National Parks Passport.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,6 +90,7 @@
 			children = (
 				A548885421A08A4F006F997C /* Alert.swift */,
 				A570E89A20A2BCBE00772AD0 /* Helper.swift */,
+				A548885F21A20295006F997C /* ReviewRequest.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				A570E88520A248BF00772AD0 /* AppDelegate.swift in Sources */,
 				A548885521A08A4F006F997C /* Alert.swift in Sources */,
 				A570E8A820A5F9AB00772AD0 /* ParkView.swift in Sources */,
+				A548886021A20295006F997C /* ReviewRequest.swift in Sources */,
 				A5481E1B219E1B3E0036F25F /* PieChartView.swift in Sources */,
 				A570E89B20A2BCBE00772AD0 /* Helper.swift in Sources */,
 				A570E89720A24A9E00772AD0 /* Park.swift in Sources */,
