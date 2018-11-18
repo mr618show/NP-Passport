@@ -19,6 +19,7 @@ class ParkSearchTable: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.separatorStyle = .none
+        tableView.register(UINib(nibName: "ParkSearchTableViewCell", bundle: nil), forCellReuseIdentifier: "ParkSearchTableViewCell")
         if !NPSAPIClient.shareInstance.isEmpty {
             parks = NPSAPIClient.shareInstance.fetchFromCoreData()
             print("core data has \(parks.count) parks")
@@ -30,6 +31,14 @@ class ParkSearchTable: UITableViewController {
             let parkName = park.name
             self.parkNames.append(parkName)
         }
+    }
+    
+    func utf8DecodedString(input: String)-> String {
+        let data = input.data(using: .utf8)
+        if let message = String(data: data!, encoding: .nonLossyASCII){
+            return message
+        }
+        return ""
     }
     
 }
@@ -53,11 +62,18 @@ extension ParkSearchTable {
         return matchingItems.count
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ParkSearchTableCell")!
-        cell.textLabel?.text = matchingItems[indexPath.row]
-        cell.textLabel?.font = UIFont(name: "Noteworthy", size: 15)
-        cell.backgroundColor = UIColor(red: 216/255, green: 225/255, blue: 216/255, alpha: 0.5)
-        cell.detailTextLabel?.text = ""
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ParkSearchTableViewCell", for: indexPath) as! ParkSearchTableViewCell
+        //Todo convert special foreign character
+        cell.parkNameLabel?.text = matchingItems[indexPath.row]
+        cell.parkNameLabel?.numberOfLines = 0
+        cell.parkNameLabel?.lineBreakMode = .byWordWrapping
+        cell.parkNameLabel?.font = UIFont(name: "Helvetica", size: 16)
+        cell.selectionStyle = .gray
+        cell.parkNameLabel?.textColor = .white
+        //cell.contentView.backgroundColor =
+        cell.backgroundColor = UIColor(red: 32/255, green: 54/255, blue: 79/255, alpha: 0.7)
+            
+         //   UIColor(red: 216/255, green: 225/255, blue: 216/255, alpha: 0.5)
         return cell
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -70,6 +86,8 @@ extension ParkSearchTable {
     }
     
 }
+
+
 
 
 

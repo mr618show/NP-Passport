@@ -31,7 +31,7 @@ class ParkStatsViewController: UIViewController {
         pieChartView.segments = [
             Segment(color: UIColor(red: 10/255, green: 80/255, blue: 80/255,
                                    alpha: 1), value: CGFloat(visitedParks.count) ),
-            Segment(color: .gray, value: CGFloat(unVisitedParks.count))
+            Segment(color: .lightGray, value: CGFloat(unVisitedParks.count))
         ]
         pieChartContainerView.addSubview(pieChartView)
         
