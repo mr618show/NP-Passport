@@ -54,12 +54,9 @@ extension ParkSearchTable {
     }
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ParkSearchTableCell")!
-        
         cell.textLabel?.text = matchingItems[indexPath.row]
         cell.textLabel?.font = UIFont(name: "Noteworthy", size: 15)
-        cell.textLabel?.textColor = .white
-        cell.textLabel?.backgroundColor = UIColor(red: 25/255, green: 42/255, blue: 62/255, alpha: 0.5)
-        cell.contentView.backgroundColor = UIColor(red: 226/255, green: 225/255, blue: 216/255, alpha: 0.5)
+        cell.backgroundColor = UIColor(red: 216/255, green: 225/255, blue: 216/255, alpha: 0.5)
         cell.detailTextLabel?.text = ""
         return cell
     }
