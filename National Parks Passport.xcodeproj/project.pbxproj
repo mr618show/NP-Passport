@@ -49,7 +49,7 @@
 		A570E89620A24A9E00772AD0 /* Park.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Park.swift; sourceTree = "<group>"; };
 		A570E89820A297C200772AD0 /* NPSAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSAPIClient.swift; sourceTree = "<group>"; };
 		A570E89A20A2BCBE00772AD0 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
-		A570E89C20A3D64600772AD0 /* ParkSearchTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkSearchTable.swift; sourceTree = "<group>"; };
+		A570E89C20A3D64600772AD0 /* ParkSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParkSearchTable.swift; sourceTree = "<group>"; };
 		A570E8A720A5F9AB00772AD0 /* ParkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkView.swift; sourceTree = "<group>"; };
 		E057E6453EA530C2FE1E4B7B /* Pods_National_Parks_Passport.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_National_Parks_Passport.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */

@@ -16,6 +16,9 @@ class ParkDetailViewController: UIViewController {
     @IBOutlet weak var parkImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
+    
+    @IBOutlet weak var SummaryLabelContainerView: UIView!
+    
     @IBOutlet weak var visitedSwitch: UISwitch!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     var park: Park?
@@ -25,6 +28,8 @@ class ParkDetailViewController: UIViewController {
         if let park = park {
             nameLabel.text = park.name
             summaryLabel.text = park.summary
+            SummaryLabelContainerView.layer.cornerRadius = 5
+            SummaryLabelContainerView.layer.masksToBounds = true
             let context = AppDelegate.viewContext
             if let tracker = park.fetchTracker(name: park.name, managedObjectContext: context).first {
                 visitedSwitch.isOn = tracker.visited

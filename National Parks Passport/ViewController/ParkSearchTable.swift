@@ -64,7 +64,12 @@ extension ParkSearchTable {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ParkSearchTableViewCell", for: indexPath) as! ParkSearchTableViewCell
         //Todo convert special foreign character
-        cell.parkNameLabel?.text = matchingItems[indexPath.row]
+        if (matchingItems[indexPath.row].contains("Haleaka")) {
+            cell.parkNameLabel?.text = "Haleakalā National Park"
+        } else {
+            cell.parkNameLabel?.text = matchingItems[indexPath.row]
+        }
+        
         cell.parkNameLabel?.numberOfLines = 0
         cell.parkNameLabel?.lineBreakMode = .byWordWrapping
         cell.parkNameLabel?.font = UIFont(name: "Helvetica", size: 16)
