@@ -41,7 +41,7 @@
 		A548885F21A20295006F997C /* ReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewRequest.swift; sourceTree = "<group>"; };
 		A56DE7F820A8E68400BA8693 /* Park.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Park.xcdatamodel; sourceTree = "<group>"; };
 		A56DE7FC20A8F03200BA8693 /* ParkDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkDetailViewController.swift; sourceTree = "<group>"; };
-		A570E88120A248BF00772AD0 /* National Parks Passport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "National Parks Passport.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A570E88120A248BF00772AD0 /* NPTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NPTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A570E88420A248BF00772AD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A570E88620A248BF00772AD0 /* ParksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParksViewController.swift; sourceTree = "<group>"; };
 		A570E88920A248BF00772AD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		A570E87820A248BF00772AD0 = {
 			isa = PBXGroup;
 			children = (
-				A570E88320A248BF00772AD0 /* National Parks Passport */,
+				A570E88320A248BF00772AD0 /* NPTracker */,
 				A570E88220A248BF00772AD0 /* Products */,
 				76C94D6D896A09E36C012B12 /* Pods */,
 				38620C44B0869ED44348D668 /* Frameworks */,
@@ -137,12 +137,12 @@
 		A570E88220A248BF00772AD0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A570E88120A248BF00772AD0 /* National Parks Passport.app */,
+				A570E88120A248BF00772AD0 /* NPTracker.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A570E88320A248BF00772AD0 /* National Parks Passport */ = {
+		A570E88320A248BF00772AD0 /* NPTracker */ = {
 			isa = PBXGroup;
 			children = (
 				A548885921A122D0006F997C /* Model */,
@@ -159,15 +159,15 @@
 				A548885A21A1EBF3006F997C /* ParkSearchTableViewCell.swift */,
 				A548885B21A1EBF3006F997C /* ParkSearchTableViewCell.xib */,
 			);
-			path = "National Parks Passport";
+			path = NPTracker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A570E88020A248BF00772AD0 /* National Parks Passport */ = {
+		A570E88020A248BF00772AD0 /* NPTracker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A570E89320A248BF00772AD0 /* Build configuration list for PBXNativeTarget "National Parks Passport" */;
+			buildConfigurationList = A570E89320A248BF00772AD0 /* Build configuration list for PBXNativeTarget "NPTracker" */;
 			buildPhases = (
 				CC7B29BB0AA5797A326DEAD1 /* [CP] Check Pods Manifest.lock */,
 				A570E87D20A248BF00772AD0 /* Sources */,
@@ -180,9 +180,9 @@
 			);
 			dependencies = (
 			);
-			name = "National Parks Passport";
+			name = NPTracker;
 			productName = "National Parks Passport";
-			productReference = A570E88120A248BF00772AD0 /* National Parks Passport.app */;
+			productReference = A570E88120A248BF00772AD0 /* NPTracker.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -206,7 +206,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A570E87C20A248BF00772AD0 /* Build configuration list for PBXProject "National Parks Passport" */;
+			buildConfigurationList = A570E87C20A248BF00772AD0 /* Build configuration list for PBXProject "NPTracker" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -219,7 +219,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A570E88020A248BF00772AD0 /* National Parks Passport */,
+				A570E88020A248BF00772AD0 /* NPTracker */,
 			);
 		};
 /* End PBXProject section */
@@ -445,9 +445,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BDVS636UPQ;
-				INFOPLIST_FILE = "National Parks Passport/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/NPTracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "rmao.National-Parks-Passport";
+				PRODUCT_BUNDLE_IDENTIFIER = rmao.NPTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -461,9 +461,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BDVS636UPQ;
-				INFOPLIST_FILE = "National Parks Passport/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/NPTracker/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "rmao.National-Parks-Passport";
+				PRODUCT_BUNDLE_IDENTIFIER = rmao.NPTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -473,7 +473,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A570E87C20A248BF00772AD0 /* Build configuration list for PBXProject "National Parks Passport" */ = {
+		A570E87C20A248BF00772AD0 /* Build configuration list for PBXProject "NPTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A570E89120A248BF00772AD0 /* Debug */,
@@ -482,7 +482,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A570E89320A248BF00772AD0 /* Build configuration list for PBXNativeTarget "National Parks Passport" */ = {
+		A570E89320A248BF00772AD0 /* Build configuration list for PBXNativeTarget "NPTracker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A570E89420A248BF00772AD0 /* Debug */,
