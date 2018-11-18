@@ -2,6 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/gezimao/Documents/my_apps/National Parks Passport/National Parks Passport/Park+CoreDataClass.swift">
+   </FileRef>
+   <FileRef
+      location = "group:/Users/gezimao/Documents/my_apps/National Parks Passport/National Parks Passport/Park+CoreDataProperties.swift">
+   </FileRef>
+   <FileRef
       location = "group:National Parks Passport.xcodeproj">
    </FileRef>
    <FileRef
