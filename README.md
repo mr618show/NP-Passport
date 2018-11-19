@@ -20,13 +20,6 @@ Park Detail View
  - Map view annotation color-coding change when a park is marked as 'visited'
 
 
-
-
-Credits
-
-JTAppleCalendar (https://github.com/patchthecode/JTAppleCalendar)
-
-
 Walkthrough of all user stories:
 
 ![Video Walkthrough](https://github.com/mr618show/NPTracker/blob/master/nptracker.gif) 
