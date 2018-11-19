@@ -22,7 +22,7 @@ Park Detail View
 
 Walkthrough of all user stories:
 
-![Video Walkthrough](https://github.com/mr618show/NPTracker/blob/master/nptracker.gif) 
+![Video Walkthrough](https://github.com/mr618show/NPTracker/blob/master/NPTracker.gif) 
 
 
 
