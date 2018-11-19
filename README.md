@@ -4,6 +4,7 @@ A lightweight, geo-aware application for keeping track of your visited National 
 
 
 Completed user stories:
+
 Map View
  - Loading 58 national parks location from coordinates retrieved from NPS API
  - Persist all the park data in Core Data for offline usage
@@ -19,6 +20,8 @@ Park Detail View
  - A switch that provides interation for user to mark the current park as 'visited'
  - Map view annotation color-coding change when a park is marked as 'visited'
 
+Park Stats View
+ - Rich UI with custom counting label and pie chart present the current progress of visiting
 
 Walkthrough of all user stories:
 
