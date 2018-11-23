@@ -23,7 +23,7 @@ Park Detail View
  - Map view annotation color-coding change when a park is marked as 'visited'
 
 Park Stats View
- - Rich UI with custom counting label and pie chart present the current progress of visiting
+ - Custom counting label and pie chart present the current progress of visited national parks
 
 Walkthrough of all user stories:
 
